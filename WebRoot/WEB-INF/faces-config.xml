@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+	
+	<!-- Spring EL Resolver -->
+  	<application> 
+ 	     <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver> 
+ 	     <locale-config>
+ 	     	<default-locale>pt_BR</default-locale> 
+ 	     </locale-config> 
+      </application> 
+	
+	<!-- Beans - Configura -->
+	<managed-bean>
+		<managed-bean-name>configuraBeans</managed-bean-name>
+		<managed-bean-class>manegedbeans.ConfiguraBeans</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		  <managed-property>
+	         <property-name>configService</property-name>
+	         <value>#{configService}</value>
+     	 </managed-property>
+     	 <managed-property>
+	         <property-name>jogadorService</property-name>
+	         <value>#{jogadorService}</value>
+     	 </managed-property>
+	</managed-bean>
+	
+	<!-- Beans - Jogada -->
+	<managed-bean>
+		<managed-bean-name>jogadaBeans</managed-bean-name>
+		<managed-bean-class>manegedbeans.JogadaBeans</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+	         <property-name>jogadaService</property-name>
+	         <value>#{jogadaService}</value>
+     	 </managed-property>
+	</managed-bean>
+	
+	<!-- Beans - Jogador -->
+	<managed-bean>
+		<managed-bean-name>jogadorBeans</managed-bean-name>
+		<managed-bean-class>manegedbeans.JogadorBeans</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+	         <property-name>jogadorLogadoService</property-name>
+	         <value>#{jogadorLogadoService}</value>
+     	 </managed-property>
+	</managed-bean>
+	
+	<!-- Beans - Menu -->
+	<managed-bean>
+		<managed-bean-name>menuBeans</managed-bean-name>
+		<managed-bean-class>manegedbeans.MenuBeans</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<!-- Navigation rule -->
+	  <navigation-rule>
+			<navigation-case>
+				<from-outcome>success</from-outcome>
+				<to-view-id>campominado.jsp</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>lost</from-outcome>
+				<to-view-id>perdeu.jsp</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>win</from-outcome>
+				<to-view-id>venceu.jsp</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>config</from-outcome>
+				<to-view-id>configuracao.jsp</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>rank</from-outcome>
+				<to-view-id>ranking.jsp</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>winners</from-outcome>
+				<to-view-id>vencedores.jsp</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>login</from-outcome>
+				<to-view-id>login.jsp</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>cadastro</from-outcome>
+				<to-view-id>cadastra.jsp</to-view-id>
+			</navigation-case>
+	    </navigation-rule>
+
+</faces-config>

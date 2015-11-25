@@ -1,0 +1,164 @@
+@CHARSET "ISO-8859-1";
+
+input[type="text"] {
+	display: block;
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 14px;
+	appearance: none;
+	box-shadow: none;
+	border-radius: none;
+}
+
+input[type="text"]:focus {
+	outline: none;
+}
+
+.btcon {
+	color: #050505;
+	font-size: 14px;
+	padding: 10px 20px 10px 20px;
+	border: solid #ffffff 0px;
+	text-decoration: none;
+}
+
+.btlogin {
+	color: #050505;
+	font-size: 14px;
+	padding: 10px 20px 10px 20px;
+	border: solid #ffffff 0px;
+	text-decoration: none;
+	margin-left: 10px;
+}
+
+.btcon:HOVER {
+	background: transparent;
+	box-shadow: inset 0 0 0 5px #3071A9;
+}
+
+.btlogin:HOVER {
+	background: transparent;
+	box-shadow: inset 0 0 0 5px #3071A9;
+}
+
+#bt {
+	color: #050505;
+	font-size: 14px;
+	padding: 10px 20px 10px 20px;
+	border: solid #ffffff 0px;
+	text-decoration: none;
+}
+
+.btn:HOVER {
+	background: transparent;
+	box-shadow: inset 0 0 0 5px #3071A9;
+	
+}
+
+h1 {
+	display: block;
+	font-size: 2em;
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: lighter;
+	font-family: sans-serif;
+	color: orange;
+}
+
+label {
+	display: block;
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: lighter;
+	font-family: sans-serif;
+	color: black;
+}
+
+.pic {
+	margin-bottom: -4px;
+	margin-right: 2px;
+}
+
+.search .rich-menu-item-hover {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.txts {
+	color: orange;
+	
+	
+}
+
+#ft {
+	background-color: orange;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	color: #FFF;
+	text-align: center;
+	font-size: 13px;
+}
+
+body {
+	font-family: Tahoma, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5em;
+	background: #a8c8ca url(../img/bg.png);
+	color: #444444;
+}
+
+#img:HOVER {
+	color: #575858;
+	-webkit-transform: rotate(-7deg);
+	-moz-transform: rotate(-7deg);
+	-o-transform: rotate(-7deg);
+}
+
+.msg {
+	font-size: 20px;
+	color: #ffffff;
+}
+
+.msgcampo {
+	font-size: 20px;
+	color: #d90052;
+}
+
+#divcon {
+	margin-left: 100px;
+}
+
+#divlogin {
+	margin-left: 100px;
+}
+
+#divperdeu {
+	margin-left: 50px;
+}
+
+#divganhou {
+	margin-left: 50px;
+}
+
+.menu {
+	height: 32px;
+}
+
+.logado {
+	margin-left: 100px;
+}
+
+.btn {
+	width: 25px;
+	height: 25px;
+	background: #c1c1ff;
+	font-size: 25px;
+	color:#ffffff;
+	padding: 10px 20px 10px 20px;
+	border: solid #ffffff 0px;
+	text-decoration: none;
+}

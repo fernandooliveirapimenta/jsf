@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+  
+   <!-- ========== Camada - Bean's ================================== -->
+	<beans:bean id="Configura" name="ConfiguraBeans" class="manegedbeans.ConfiguraBeans" scope="request">
+		<beans:property name="configService" ref="configService"/> <!-- session -->
+		<beans:property name="jogadorService" ref="jogadorService"/> <!-- session -->
+	</beans:bean>
+	<beans:bean id="Jogada" name="JogadaBeans" class="manegedbeans.JogadaBeans" scope="request">
+		<beans:property name="jogadaService" ref="jogadaService"/>
+	</beans:bean>
+	<beans:bean id="Jogador" name="JogadorBeans" class="manegedbeans.JogadorBeans" scope="request">
+		<beans:property name="jogadorLogadoService" ref="jogadorLogadoService"/>
+	</beans:bean>
+	<!-- ========== Camada - Service's ================================== -->
+    <beans:bean name="configuraService" id="configService" class="service.ConfiguraService" scope="session"> 
+    	<beans:property name="configDao" ref="configuraDao"/>
+    	<beans:property name="jogo" ref="jogo"/>
+    </beans:bean> 
+	<beans:bean name="jogadaService" id="jogadaService" class="service.JogadaService" scope="request">
+		<beans:property name="jogadorService" ref="jogadorService"/>
+		<beans:property name="configService" ref="configService"/>
+		<beans:property name="jogadorLogadoService" ref="jogadorLogadoService"/>
+	</beans:bean>
+	<beans:bean name="jogadorLogadoService" id="jogadorLogadoService" class="service.JogadorLogadoService" scope="request">
+		<beans:property name="jogadorDao" ref="jogadorDAO"/>
+		<beans:property name="vencedorDao" ref="vencedorDAO"/>
+		<beans:property name="jogadorService" ref="jogadorService"/>
+	</beans:bean>
+	<beans:bean name="jogadorService" id="jogadorService" class="service.JogadorService" scope="session"/> 
+	
+	<!-- ========== Camada - DAO's ================================== -->
+	<beans:bean id="configuraDao" class="dao.ConfiguracaoDAO"> 
+		<beans:property name="sessionFactory" ref="sessionFactory"/>
+	</beans:bean>
+	<beans:bean id="jogadorDAO" class="dao.JogadorDAO">
+		<beans:property name="sessionFactory" ref="sessionFactory"/>
+	</beans:bean>
+	<beans:bean id="vencedorDAO" class="dao.VencedoresDAO">
+		<beans:property name="sessionFactory" ref="sessionFactory"/>
+	</beans:bean>
+	
+	<!-- ========== Camada - jogo ================================== -->
+	<beans:bean name="jogo" id="jogo" class="model.Jogo">
+		<beans:property name="tab" ref="tab"/>
+		<beans:property name="layout" ref="layaut"/>
+	</beans:bean>
+	<beans:bean name="layout" id="layaut" class="model.Layout">
+		<beans:property name="tabuleiro" ref="tab"/>
+	</beans:bean>
+	<beans:bean name="tab" id="tab" class="model.Tabuleiro" /> 
+	
+	<!-- ========== Data Source - Configuracao ================================== -->
+	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="org.postgresql.Driver" />
+		<beans:property name="url" value="jdbc:postgresql://localhost:5432/CampoMinado" />
+		<beans:property name="username" value="postgres" />
+		<beans:property name="password" value="root" />
+	</beans:bean>
+	
+	<!-- ========== Session - Hibernate ================================== -->
+	<beans:bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<beans:property name="dataSource">
+			<beans:ref bean="dataSource" />
+		</beans:property >
+		<beans:property name="hibernateProperties">
+			<beans:props>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</beans:prop>
+				<beans:prop key="hibernate.show_sql">true</beans:prop>
+			</beans:props>
+		</beans:property>
+		<beans:property name="mappingResources">
+			<beans:list>
+				<beans:value>persistence/Configuracao.hbm.xml</beans:value>
+				<beans:value>persistence/Jogador.hbm.xml</beans:value>
+				<beans:value>persistence/Vencedores.hbm.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+</beans:beans>

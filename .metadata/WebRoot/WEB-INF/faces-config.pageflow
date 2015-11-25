@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14381018146910" configfile="/jsf/WebRoot/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="start.xhtml" x="122" y="658" id="pf14381938358850" referenceLink="//@navigationRule.0/@fromViewId|" path="configuracao.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1522" id="pf14382607179492" outlinks="pf14382607179493 pf14382607179495 pf14383498020102 pf14387879469835 pf14387986146047 pf14389722792450 pf14389729050202 pf14393007270150" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="CampoMinado" x="338" y="178" id="pf14382607179497" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14382607179493" path="campominado.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="Venceu" x="338" y="562" id="pf14382607179499" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14382607179495" path="venceu.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="Perdeu" x="338" y="946" id="pf14383498020103" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14383498020102" path="perdeu.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="configuracao" x="338" y="1330" id="pf14387879469836" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14387879469835" path="configuracao.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="ranking" x="338" y="1714" id="pf14387986146048" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf14387986146047" path="ranking.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="vencedores" x="338" y="2098" id="pf14389722792451" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf14389722792450" path="vencedores.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="index" x="338" y="2482" id="pf14389729050203" referenceLink="//@navigationRule.0/@navigationCase.6/@toViewId|" inlinks="pf14389729050202" path="login.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="cadastra" x="338" y="2866" id="pf14393007270161" referenceLink="//@navigationRule.0/@navigationCase.7/@toViewId|" inlinks="pf14393007270150" path="cadastra.jsp"/>
+  <links id="pf14382607179493" target="pf14382607179497" source="pf14382607179492" outcome="success"/>
+  <links id="pf14382607179495" target="pf14382607179499" source="pf14382607179492" outcome="win"/>
+  <links id="pf14383498020102" target="pf14383498020103" source="pf14382607179492" outcome="lost"/>
+  <links id="pf14387879469835" target="pf14387879469836" source="pf14382607179492" outcome="config"/>
+  <links id="pf14387986146047" target="pf14387986146048" source="pf14382607179492" outcome="rank"/>
+  <links id="pf14389722792450" target="pf14389722792451" source="pf14382607179492" outcome="winners"/>
+  <links id="pf14389729050202" target="pf14389729050203" source="pf14382607179492" outcome="login"/>
+  <links id="pf14393007270150" target="pf14393007270161" source="pf14382607179492" outcome="cadastro"/>
+</pageflow:Pageflow>
